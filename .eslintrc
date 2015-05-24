@@ -1,0 +1,5 @@
+extends: ./node_modules/eslint-config-remko/eslintrc
+env:
+  es6: false
+rules:
+  no-var: 0
