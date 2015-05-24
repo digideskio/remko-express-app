@@ -6,10 +6,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var passport = require('passport');
 var SQLiteStore = require('connect-sqlite3')(session);
 var baseURI = require('base-uri');
 var assign = require('object-assign');
+var flash = require('connect-flash');
 
 function start(options) {
 	// Initialize options
@@ -27,6 +27,7 @@ function start(options) {
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({ extended: false }));
 	app.use(cookieParser());
+	app.use(flash());
 
 	app.use(session(assign({ 
 		// secret: 'MySecret',
@@ -35,8 +36,10 @@ function start(options) {
 		resave: false,
 		saveUninitialized: false
 	}, options.session)));
-	app.use(passport.initialize());
-	app.use(passport.session());
+	if (options.passport) {
+		app.use(options.passport.initialize());
+		app.use(options.passport.session());
+	}
 
 	app.use(baseURI, express.static(path.join(options.serverDir, 'public')));
 
