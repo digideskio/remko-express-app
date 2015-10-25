@@ -1,7 +1,7 @@
 {
   "name": "remko-express-app",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "keywords": [],
   "homepage": "https://el-tramo.be/base-uri",
@@ -43,7 +43,8 @@
     "object-assign": "^2.0.0",
     "passport": "^0.2.2",
     "path": "^0.11.14",
-    "webpack": "^1.9.9",
-    "webpack-dev-middleware": "^1.0.11"
+    "webpack": "^1.12.2",
+    "webpack-dev-middleware": "^1.2.0",
+    "webpack-manifest-plugin": "^0.4.0"
   }
 }

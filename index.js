@@ -42,6 +42,9 @@ function start(options) {
 	}
 
 	app.use(baseURI, express.static(path.join(options.serverDir, 'public')));
+	if (app.get('env') !== 'development') {
+		app.set('trust proxy', true);
+	}
 
 	// Webpack
 	var webpackConfig = require(path.join(options.topDir, 'webpack.config'));
