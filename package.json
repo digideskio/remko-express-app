@@ -19,8 +19,8 @@
     "lint": "./node_modules/.bin/eslint ."
   },
   "devDependencies": {
-    "eslint": "^0.21.2",
-    "eslint-config-remko": "^1.0.2",
+    "eslint": "^1.10.1",
+    "eslint-config-remko": "^1.0.8",
     "eslint-config-remko-react": "^1.0.0"
   },
   "config": {
